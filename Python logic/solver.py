@@ -5,6 +5,8 @@ import random
 
 
 def winnerAction(winner):
+    """We can create some other function other than this
+    such as highlighting the winner's card background"""
     if winner != 0:
         print("Player", winner, "won.")
     else:
@@ -27,7 +29,7 @@ class game:
                 self.P1.cards.append(Card(suit, num))
             else:
                 if len(self.P2.cards) < self.cardsDealt:
-                    """We can automatically switch to player 2"""
+                    """We can automatically switch to player 2 and fix it"""
                     print("Enter cards for player 2")
                 else:
                     """We can disable the enter button and activate the compare button"""
@@ -66,6 +68,10 @@ class game:
             self.gameTypeMethodDecider()
         else:
             print("Enter More cards")
+
+    def reset(self):
+        self.P1 = Player()
+        self.P2 = Player()
 
 
 """Stream Looks like this"""
