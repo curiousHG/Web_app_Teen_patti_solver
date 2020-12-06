@@ -87,36 +87,33 @@ class game:
 # g.compare()
 
 """Python Testing Code"""
-# testing_iterations = 1
-# s = [(k) for k, v in suits.items()]
-# n = [(k) for k, v in numbers.items()]
-# for i in range(testing_iterations):
-#     p1, p2 = [], []
-#     gT = "Classic"
-#     g = game(gT)
-#     cards = []
-#     for j in range(3):
-#         t, suit, num = True, None, None
-#         while t:
-#             suit = random.choice(s)
-#             num = random.choice(n)
-#             if [suit, num] not in cards:
-#                 cards.append([suit, num])
-#                 break
-#             print(1)
-#         t = g.setCard(1, suit, num)
-#         p1 += [[suit, num]]
-#     for j in range(3):
-#         t, suit, num = True, None, None
-#         while t:
-#             suit = random.choice(s)
-#             num = random.choice(n)
-#             if [suit, num] not in cards:
-#                 cards.append([suit, num])
-#                 break
-#             print(2)
-#         t = g.setCard(2, suit, num)
-#         p2 += [[suit, num]]
-#     print(p1, p2)
-#     print(cards)
-#     g.compare()
+testing_iterations = 10
+s = [(k) for k, v in suits.items()]
+n = [(k) for k, v in numbers.items()]
+for i in range(testing_iterations):
+    p1, p2 = [], []
+    gT = "Classic"
+    g = game(gT)
+    cards = []
+    for j in range(3):
+        t, suit, num = True, None, None
+        while t:
+            suit = random.choice(s)
+            num = random.choice(n)
+            if [suit, num] not in cards:
+                cards.append([suit, num])
+                break
+        t = g.setCard(1, suit, num)
+        p1 += [[suit, num]]
+    for j in range(3):
+        t, suit, num = True, None, None
+        while t:
+            suit = random.choice(s)
+            num = random.choice(n)
+            if [suit, num] not in cards:
+                cards.append([suit, num])
+                break
+        t = g.setCard(2, suit, num)
+        p2 += [[suit, num]]
+    print(p1, p2)
+    g.compare()

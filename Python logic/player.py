@@ -5,7 +5,9 @@ from details import heirarchies, numbers, suits, gameTypes
 class Player:
     def __init__(self):
         self.cards = []
+        # hierarchy is a int
         self.hierarchy = None
+        # hierarchy number is a list
         self.hierarchyNumber = None
 
     def suitChecker(self):
