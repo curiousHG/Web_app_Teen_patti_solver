@@ -1,0 +1,20 @@
+.homeBanner {
+    height: 35vh;
+    width: 100%;
+    background-color: rgb(99, 99, 236);
+    text-overflow: clip;
+}
+.row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+.active{
+    background-color: rgba(104, 163, 223, 0.589);
+}
