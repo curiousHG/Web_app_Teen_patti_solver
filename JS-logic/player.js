@@ -11,6 +11,7 @@ class Player {
   numberChecker() {
     // Returns True if all cards have same numbers
     if (this.cards[0].number === this.cards[1].number && this.cards[1].number === this.cards[2].number) {
+      // console.log("number hn")
       return true
     }
     return false
@@ -21,23 +22,28 @@ class Player {
     let l = [];
     var card;
     for (card in this.cards) {
-      l.push(card.number)
+      l.push(this.cards[card].number)
     }
     l.sort()
     // Considering A23 the highest sequence
     if (l === [2, 3, 14]) {
       this.hierarchyNumber.push(12);
+      // console.log("seq hn")
       return true
+
     }
     else if (l[2] - l[0] === 2) {
       this.hierarchyNumber.push(l[0] - 1)
+      // console.log("seq hn")
       return true
+
     }
     return false
   }
   suitChecker() {
     // Returns True is cards suit is same
     if (this.cards[0].suit === this.cards[1].suit && this.cards[1].suit === this.cards[2].suit) {
+      // console.log("color hn")
       return true
     }
     return false
@@ -49,54 +55,56 @@ class Player {
     let l = [];
     var card;
     for (card in this.cards) {
-      l.push(card.number)
+      l.push(this.cards[card].number)
     }
     l.sort()
     if (l[1] === l[0]) {
       this.hierarchyNumber.push(l[1], l[2])
-      console.log("pair")
+      // console.log("pair")
       return true
     }
     else if (l[1] === l[2]) {
       this.hierarchyNumber.push(l[1], l[0])
-      console.log("pair")
+      // console.log("pair")
       return true
     }
     return false
   }
   hierarchy_decider() {
-    if (this.numberChecker) {
+    // console.log("we are in decider")
+    if (this.numberChecker()) {
       this.hierarchy = heirarchies["Trail"]
       this.hierarchyNumber.push(this.cards[0].number)
     }
-    else if (this.sequenceChecker) {
-      if (this.suitChecker) {
+    else if (this.sequenceChecker()) {
+      if (this.suitChecker()) {
         this.hierarchy = heirarchies["PureSeq"]
       }
       else {
         this.hierarchy = heirarchies["Seq"]
       }
     }
-    else if (this.suitChecker) {
+    else if (this.suitChecker()) {
       this.hierarchy = heirarchies["Color"]
       let cards = [];
       var card;
       for (card in this.cards) {
-        cards.push(card.number)
+        // console.log(this.cards[card].number)
+        cards.push(this.cards[card].number)
       }
       cards.sort();
       cards.reverse();
       this.hierarchyNumber = cards;
     }
-    else if (this.pairChecker) {
+    else if (this.pairChecker()) {
       this.hierarchy = heirarchies["Pair"]
-    }
+    } 
     else {
       this.hierarchy = heirarchies["HighCard"]
       let cards = [];
       var card;
       for (card in this.cards) {
-        cards.push(card.number)
+        cards.push(this.cards[card].number)
       }
       cards.sort()
       this.hierarchyNumber = cards.reverse();
@@ -108,11 +116,12 @@ let player1 = new Player();
 let player2 = new Player();
 
 
-let l = [c4, c2, c3]
-let p = new Player()
-p.cards = l
-p.hierarchy_decider();
-console.log(p.hierarchy,p.hierarchyNumber)
+// let l = [c4, c2, c3]
+// let p = new Player()
+// p.cards = l
+// p.hierarchy_decider();
+// console.log(p.cards)
+// console.log(p.hierarchy,p.hierarchyNumber)
 module.exports = {
   Player, player1, player2
 }

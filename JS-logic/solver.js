@@ -87,11 +87,12 @@ class Game {
 let testing_iterations = 2
 let s = [];
 for (k in suits) {
-    s.push(k);
+    // console.log(suits[k])
+    s.push(suits[k]);
 }
 let n = [];
 for (k in numbers) {
-    n.push(k);
+    n.push(numbers[k]);
 }
 for (let i = 0; i < testing_iterations; i++) {
     let p1 = [];
