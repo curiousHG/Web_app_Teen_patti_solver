@@ -8,12 +8,9 @@ class Card {
 }
 
 let c1 = new Card();
-let c2=new Card("spade","5");
-let c3=new Card("heart","5");
-let c4=new Card("diamond","k");
 
 module.exports = {
-  Card,c1,c2,c3,c4
+  Card,c1
 }
 
 // let card1 = new Card("spade", 2);

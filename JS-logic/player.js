@@ -1,4 +1,4 @@
-const { Card, c4, c2, c3 } = require("./card")
+const { Card} = require("./card")
 const { heirarchies, suits, numbers, gameTypes } = require("./details")
 
 
@@ -122,6 +122,7 @@ let player2 = new Player();
 // p.hierarchy_decider();
 // console.log(p.cards)
 // console.log(p.hierarchy,p.hierarchyNumber)
+
 module.exports = {
   Player, player1, player2
 }
