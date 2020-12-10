@@ -90,6 +90,7 @@ class game:
 testing_iterations = 10
 s = [(k) for k, v in suits.items()]
 n = [(k) for k, v in numbers.items()]
+print(n)
 for i in range(testing_iterations):
     p1, p2 = [], []
     gT = "Classic"

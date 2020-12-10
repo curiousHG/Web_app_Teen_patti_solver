@@ -1,8 +1,9 @@
 const { Player, player1, player2 } = require("./player")
-const { Card, c1 } = require("./card")
+const { Card } = require("./card")
 const { heirarchies, suits, numbers, gameTypes } = require("./details")
 
 function winnerAction(winner) {
+    console.log("Winner function")
     if (winner != 0)
         console.log("Player", winner, "won.")
     else
@@ -22,9 +23,11 @@ class Game {
         // inputs are player_id, suit code(0, 1, 2, 3) and num(2, 3, 4, 'a', 'k', 'q')
         if (player_id === 1) {
             if (this.P1.cards.length < this.cardsDealt) {
-                c1.suit = suit;
-                c1.number = num;
+                let c1 = new Card(suit, num);
+                console.log(c1)
+                console.log("P1 Cards", this.P1.cards);
                 this.P1.cards.push(c1)
+                console.log("P1 Cards", this.P1.cards);
             }
             else
                 if (this.P2.cards.length < this.cardsDealt)
@@ -36,9 +39,11 @@ class Game {
         }
         else if (player_id === 2) {
             if (this.P2.cards.length < this.cardsDealt) {
-                c1.suit = suit;
-                c1.number = num;
-                this.P2.cards.push(c1)
+                let c1 = new Card(suit, num);
+                console.log(c1)
+                console.log("P2 Cards", this.P2.cards);
+                this.P1.cards.push(c1)
+                console.log("P2 Cards", this.P2.cards);
             }
             else
                 if (this.P1.cards.length < this.cardsDealt)
@@ -52,6 +57,7 @@ class Game {
     }
 
     gameType_Classic() {
+        console.log(this.P1)
         let p1 = [];
         p1.push(this.P1.hierarchy, this.P1.hierarchyNumber);
         let p2 = [];
@@ -80,18 +86,19 @@ class Game {
             this.gameTypeMethodDecider();
         }
         else
-            print("Enter More cards")
+            console.log("Enter More cards")
     }
 }
 
 let testing_iterations = 2
 let s = [];
 for (k in suits) {
-    // console.log(suits[k])
+    // console.log(k)
     s.push(suits[k]);
 }
 let n = [];
 for (k in numbers) {
+    // console.log(k)
     n.push(numbers[k]);
 }
 for (let i = 0; i < testing_iterations; i++) {
@@ -132,7 +139,7 @@ for (let i = 0; i < testing_iterations; i++) {
         t = g.setCard(2, suit, num)
         p2.push([suit, num])
     }
-    console.log(p1, p2)
-    console.log(cards)
+    console.log("Cards of Player 1:", p1);
+    console.log("Cards of Player 2:", p2);
     g.compare()
 }
