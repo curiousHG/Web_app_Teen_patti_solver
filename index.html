@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"
-    ></script>
-    
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <title>TeenPatti</title>
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="true"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <a class="navbar-brand mx-auto" href="#">Teen Patti Solver</a>
-      <button type="button" class="btn btn-outline-danger mx-3 px-3">हिंदी</button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Winner Decider</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Win Probability</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Variations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Rules</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tell Us Your Variation</a>
-            </li>
-          </ul>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <div class="homeBanner col-sm-12 col-md-12">
+    <div class="col">
+      <div class="row1">
+        <div class="btn-toolbar bg-transparent border-0 mt-5 container" role="toolbar"
+          aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2 btn-group-lg bg-transparent" role="group" aria-label="First group">
+            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Home</button>
+            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Win
+              Probability</button>
+            <button type="button" style="color: cyan;"
+              class="btn btn-secondary border-0 bg-transparent">Variations</button>
+            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Rules</button>
+            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Tell Us
+              Variation</button>
+          </div>
+        </div>
+        <div class="">
+          <button class="btn btn-danger mt-2">Hindi</button>
+        </div>
       </div>
+      <div class="row mt-3">
+        <div class="col-sm-6 col-md-6">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident inventore amet cumque eaque ullam. Ab ad
+          culpa omnis, reiciendis rerum obcaecati libero magni ea consequatur qui saepe unde porro delectus, id quidem
+          exercitationem illo? Est provident nostrum quibusdam, distinctio quisquam deserunt consectetur dolorum!
+          Inventore quis dolor reprehenderit dolores voluptas doloribus.
+        </div>
+        <div class="rounded-circle bg-success" style="width:100px; height:100px;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="offset-10">
+    <input type="radio" name="Player 1" aria-selected="true" id="" value="Player 1"> Player 1
+  </div>
+  <div class="offset-10">
+    <input type="radio" name="Player 1" id="" value="Player 2"> Player 2
+  </div>
+  <section>
+    <div class="container row mt-3">
+      <div>
+        <select class="custom-select" name="" id="">
+          <Option>Normal Teen Patti Mode</Option>
+          <Option>Muflis</Option>
+          <Option>AK47</Option>
+          <Option>1947</Option>
+          <Option>999</Option>
+        </select>
+      </div>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <button type="button" class="active btn btn-secondary bg-white text-dark">Spade</button>
+          <button type="button" class="btn btn-secondary bg-white text-dark">Hearts</button>
+          <button type="button" class="btn btn-secondary bg-white text-dark">Diamond</button>
+          <button type="button" class="btn btn-secondary bg-white text-dark">Clubs</button>
+        </div>
+      </div>
+      <div>
+        <select class="custom-select" name="" id="">
+          <Option>A</Option>
+          <Option>1</Option>
+          <Option>2</Option>
+          <Option>3</Option>
+          <Option>4</Option>
+          <Option>5</Option>
+          <Option>6</Option>
+          <Option>7</Option>
+          <Option>8</Option>
+          <Option>9</Option>
+          <Option>10</Option>
+          <Option>J</Option>
+          <Option>Q</Option>
+          <Option>K</Option>
+        </select>
+      </div>
+    </div>
+  </section>
+</body>
 
-    </nav>
-  </body>
 </html>
