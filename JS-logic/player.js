@@ -24,7 +24,7 @@ class Player {
     for (card in this.cards) {
       l.push(this.cards[card].number)
     }
-    l.sort()
+    l.sort((a, b) => a - b)
     // Considering A23 the highest sequence
     if (l === [2, 3, 14]) {
       this.hierarchyNumber.push(12);
@@ -49,7 +49,7 @@ class Player {
     return false
   }
   pairChecker() {
-    console.log(this.cards[0].suit)
+    // console.log(this.cards[0].suit)
     // Checks if cards contain a pair and sets hierarchyNumber to a list
     // where first element is pair number and second is number of the remaining card
     let l = [];
@@ -57,7 +57,7 @@ class Player {
     for (card in this.cards) {
       l.push(this.cards[card].number)
     }
-    l.sort()
+    l.sort((a, b) => a - b)
     if (l[1] === l[0]) {
       this.hierarchyNumber.push(l[1], l[2])
       // console.log("pair")
@@ -92,7 +92,7 @@ class Player {
         // console.log(this.cards[card].number)
         cards.push(this.cards[card].number)
       }
-      cards.sort();
+      cards.sort((a, b) => a - b);
       cards.reverse();
       this.hierarchyNumber = cards;
     }
@@ -106,14 +106,11 @@ class Player {
       for (card in this.cards) {
         cards.push(this.cards[card].number)
       }
-      cards.sort()
+      cards.sort((a, b) => a - b)
       this.hierarchyNumber = cards.reverse();
     }
   }
 }
-
-let player1 = new Player();
-let player2 = new Player();
 
 
 // let l = [c4, c2, c3]
@@ -124,5 +121,5 @@ let player2 = new Player();
 // console.log(p.hierarchy,p.hierarchyNumber)
 
 module.exports = {
-  Player, player1, player2
+  Player
 }

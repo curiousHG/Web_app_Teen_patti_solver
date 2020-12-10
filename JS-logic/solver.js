@@ -1,9 +1,9 @@
-const { Player, player1, player2 } = require("./player")
+const { Player } = require("./player")
 const { Card } = require("./card")
 const { heirarchies, suits, numbers, gameTypes } = require("./details")
 
 function winnerAction(winner) {
-    console.log("Winner function")
+    // console.log("Winner function")
     if (winner != 0)
         console.log("Player", winner, "won.")
     else
@@ -14,8 +14,8 @@ class Game {
     constructor(gameType) {
         this.gameType = gameType;
         this.cardsDealt = gameTypes[gameType];
-        this.P1 = player1
-        this.P2 = player2
+        this.P1 = new Player();
+        this.P2 = new Player();
     }
 
     setCard(player_id, suit, num) {
@@ -24,10 +24,10 @@ class Game {
         if (player_id === 1) {
             if (this.P1.cards.length < this.cardsDealt) {
                 let c1 = new Card(suit, num);
-                console.log(c1)
-                console.log("P1 Cards", this.P1.cards);
+                // console.log(c1)
+                // console.log("P1 Cards", this.P1.cards);
                 this.P1.cards.push(c1)
-                console.log("P1 Cards", this.P1.cards);
+                // console.log("P1 Cards", this.P1.cards);
             }
             else
                 if (this.P2.cards.length < this.cardsDealt)
@@ -40,10 +40,10 @@ class Game {
         else if (player_id === 2) {
             if (this.P2.cards.length < this.cardsDealt) {
                 let c1 = new Card(suit, num);
-                console.log(c1)
-                console.log("P2 Cards", this.P2.cards);
-                this.P1.cards.push(c1)
-                console.log("P2 Cards", this.P2.cards);
+                // console.log(c1)
+                // console.log("P2 Cards", this.P2.cards);
+                this.P2.cards.push(c1)
+                // console.log("P2 Cards", this.P2.cards);
             }
             else
                 if (this.P1.cards.length < this.cardsDealt)
@@ -57,17 +57,33 @@ class Game {
     }
 
     gameType_Classic() {
-        console.log(this.P1)
+        // console.log(this.P1)
         let p1 = [];
-        p1.push(this.P1.hierarchy, this.P1.hierarchyNumber);
+        p1.push(this.P1.hierarchy);
+        let heirNum1 = this.P1.hierarchyNumber.values();
+        for (const value of heirNum1) {
+            p1.push(value)
+            // console.log(p1)
+        }
+        // console.log(p1.length)
         let p2 = [];
-        p2.push(this.P2.hierarchy, this.P2.hierarchyNumber);
-        for (var i; i < p1.length; i++) {
+        p2.push(this.P2.hierarchy);
+        let heirNum2 = this.P2.hierarchyNumber.values();
+        for (const value of heirNum2) {
+            p2.push(value)
+            // console.log(p2)
+        }
+        // console.log(p1.length)
+        let p1Length = p1.length
+        for (var i=0; i < p1Length; i++) {
+            // console.log("Entered Loop")
             if (p1[i] > p2[i]) {
+                // console.log("p1 wins")
                 winnerAction(1);
                 return
             }
             else if (p1[i] < p2[i]) {
+                // console.log("p2 wins")
                 winnerAction(2);
                 return
             }
@@ -94,12 +110,12 @@ let testing_iterations = 2
 let s = [];
 for (k in suits) {
     // console.log(k)
-    s.push(suits[k]);
+    s.push(k);
 }
 let n = [];
 for (k in numbers) {
     // console.log(k)
-    n.push(numbers[k]);
+    n.push(k);
 }
 for (let i = 0; i < testing_iterations; i++) {
     let p1 = [];
@@ -118,7 +134,7 @@ for (let i = 0; i < testing_iterations; i++) {
                 cards.push([suit, num])
                 break
             }
-            console.log(1)
+            // console.log(1)
         }
         t = g.setCard(1, suit, num)
         p1.push([suit, num])
@@ -134,7 +150,7 @@ for (let i = 0; i < testing_iterations; i++) {
                 cards.push([suit, num])
                 break
             }
-            console.log(2)
+            // console.log(2)
         }
         t = g.setCard(2, suit, num)
         p2.push([suit, num])
