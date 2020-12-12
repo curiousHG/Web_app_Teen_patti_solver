@@ -18,3 +18,9 @@
 .active{
     background-color: rgba(104, 163, 223, 0.589);
 }
+.description{
+    margin-right: 0px;
+    color: yellow;
+    font-size: 1.9rem;
+    text-align: center;
+}
