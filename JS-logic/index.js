@@ -1,4 +1,18 @@
 let gameTyp = document.getElementById("gameTyp");
+let suit1 = document.getElementById("suit1");
+let suit2 = document.getElementById("suit2");
+let suit3 = document.getElementById("suit3");
+let suit1_2 = document.getElementById("suit1.2");
+let suit2_2 = document.getElementById("suit2.2");
+let suit3_2 = document.getElementById("suit3.2");
+let no1 = document.getElementById("no1");
+let no2 = document.getElementById("no2");
+let no3 = document.getElementById("no3");
+let no1_2 = document.getElementById("no1.2");
+let no2_2 = document.getElementById("no2.2");
+let no3_2 = document.getElementById("no3.2");
+let playerId_1 = document.getElementById("playerId_1");
+let playerId_2 = document.getElementById("playerId_2");
 
 let heirarchies = {
     "Trail": 6,
@@ -273,6 +287,7 @@ class Game {
             console.log("Enter More cards")
     }
 }
+
 
 let testing_iterations = 2
 let s = [];
