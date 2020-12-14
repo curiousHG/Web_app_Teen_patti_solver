@@ -5,106 +5,258 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/styles.css">
   <title>Teen Patti Solver</title>
 </head>
 
 <body>
-  <div class="homeBanner col-sm-12 col-md-12">
-    <div class="col">
-      <div class="row1">
-        <div class="btn-toolbar bg-transparent border-0 mt-5 container" role="toolbar"
-          aria-label="Toolbar with button groups">
-          <div class="btn-group mr-2 btn-group-lg bg-transparent" role="group" aria-label="First group">
-            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Home</button>
-            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Win
-              Probability</button>
-            <button type="button" style="color: cyan;"
-              class="btn btn-secondary border-0 bg-transparent">Variations</button>
-            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Rules</button>
-            <button type="button" style="color: cyan;" class="btn btn-secondary border-0 bg-transparent">Tell Us
-              Variation</button>
-          </div>
-        </div>
-        <div class="">
-          <button class="btn btn-danger mt-2">Hindi</button>
-        </div>
-      </div>
-      <div class="row mt-3 description">
-        <div class="col-sm-6 col-md-6 col-lg-7">
-          This is a trial version were we determine the winner of a game in teenpatti after you enter the cards.
-        </div>
-        <!-- <div class="rounded-circle bg-success" style="width:100px; height:100px;"></div> -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tell Us Your Variation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Rules</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Win Probability</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
+
+  <div class="col-sm-6 container align-items-center align-self-center">
+    <label class="visually-hidden" for="gameTyp">Preference</label>
+    <select class="form-select" id="gameTyp">
+      <option selected>Select Game Type</option>
+      <option value="1">Classic</option>
+      <option value="2">AK47</option>
+      <option value="3">Muflis</option>
+    </select>
   </div>
-  <div class="row">
-    <div class="col-lg-9">
-      <div class="container row mt-3">
-        <div>
-          <select class="custom-select" name="gameTypes" id="">
-            <Option>Classic</Option>
-            <Option>Muflis</Option>
-            <Option>AK47</Option>
-            <Option>1947</Option>
-            <Option>999</Option>
-          </select>
-        </div>
-        <div id="suits" class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-          <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button id ="spade"type="button" class="active btn btn-secondary bg-white text-dark">Spade</button>
-            <button id ="heart"type="button" class="btn btn-secondary bg-white text-dark">Hearts</button>
-            <button id ="diamond"type="button" class="btn btn-secondary bg-white text-dark">Diamond</button>
-            <button id ="lub"type="button" class="btn btn-secondary bg-white text-dark">Clubs</button>
-          </div>
-      </div>
-        <div>
-          <select class="custom-select" name="number" id="">
-            <Option>A</Option>
-            <Option>2</Option>
-            <Option>3</Option>
-            <Option>4</Option>
-            <Option>5</Option>
-            <Option>6</Option>
-            <Option>7</Option>
-            <Option>8</Option>
-            <Option>9</Option>
-            <Option>10</Option>
-            <Option>J</Option>
-            <Option>Q</Option>
-            <Option>K</Option>
-          </select>
-        </div>
-      
-  
-      </div>
-      <div class="container row mt-3">
-        <button id="Start" type="button" class="active btn btn-secondary bg-white text-dark">Start</button>
-        <button id="Setcard" type="button" class="active btn btn-secondary bg-white text-dark">Set Card</button>
-        <button id="Compare" type="button" class="active btn btn-secondary bg-white text-dark">Compare</button>
+  <hr>
+  <form class="row gx-3 gy-2 align-items-center">
+    <div class="col-sm-12 col-md-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="playerId_1">
+        <label class="form-check-label" for="playerId_1">
+          Player 1
+        </label>
       </div>
     </div>
-    <div class="col-lg-3">
-      <div class="">
-        <input type="checkbox" name="Player 1" id="" value="Player 1"> Player 1
-      </div>
-      <div class="">
-        <input type="checkbox" name="Player 2" id="" value="Player 2"> Player 2
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit1">Preference</label>
+      <select class="form-select" id="suit1">
+        <option selected>Select Suit for Card 1</option>
+        <option value="1">Spade</option>
+        <option value="2">Heart</option>
+        <option value="3">Diamond</option>
+        <option value="3">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no1">Preference</label>
+      <select class="form-select" id="no1">
+        <option selected>Select Number for Card 1</option>
+        <option value="1">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+        <option value="3">J</option>
+        <option value="3">Q</option>
+        <option value="3">K</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+    <label class="visually-hidden" for="suit2">Preference</label>
+      <select class="form-select" id="suit2">
+        <option selected>Select Suit for Card 2</option>
+        <option value="1">Spade</option>
+        <option value="2">Heart</option>
+        <option value="3">Diamond</option>
+        <option value="3">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no2">Preference</label>
+      <select class="form-select" id="no2">
+        <option selected>Select Number for Card 2</option>
+        <option value="1">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+        <option value="3">J</option>
+        <option value="3">Q</option>
+        <option value="3">K</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+    <label class="visually-hidden" for="suit3">Preference</label>
+      <select class="form-select" id="suit3">
+        <option selected>Select Suit for Card 3</option>
+        <option value="1">Spade</option>
+        <option value="2">Heart</option>
+        <option value="3">Diamond</option>
+        <option value="3">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no3">Preference</label>
+      <select class="form-select" id="no3">
+        <option selected>Select Number for Card 3</option>
+        <option value="1">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+        <option value="3">J</option>
+        <option value="3">Q</option>
+        <option value="3">K</option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <form class="row gx-3 gy-2 align-items-center">
+    <div class="col-sm-12 col-md-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="playerId_2">
+        <label class="form-check-label" for="playerId_2">
+          Player 2
+        </label>
       </div>
     </div>
-  </div>
-  
-  <section>
-    
-  </section>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit1.2">Preference</label>
+      <select class="form-select" id="suit1.2">
+        <option selected>Select Suit for Card 1</option>
+        <option value="1">Spade</option>
+        <option value="2">Heart</option>
+        <option value="3">Diamond</option>
+        <option value="3">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no1.2">Preference</label>
+      <select class="form-select" id="no1.2">
+        <option selected>Select Number for Card 1</option>
+        <option value="1">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+        <option value="3">J</option>
+        <option value="3">Q</option>
+        <option value="3">K</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+    <label class="visually-hidden" for="suit2.2">Preference</label>
+      <select class="form-select" id="suit2.2">
+        <option selected>Select Suit for Card 2</option>
+        <option value="1">Spade</option>
+        <option value="2">Heart</option>
+        <option value="3">Diamond</option>
+        <option value="3">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no2.2">Preference</label>
+      <select class="form-select" id="no2.2">
+        <option selected>Select Number for Card 2</option>
+        <option value="1">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+        <option value="3">J</option>
+        <option value="3">Q</option>
+        <option value="3">K</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+    <label class="visually-hidden" for="suit3.2">Preference</label>
+      <select class="form-select" id="suit3.2">
+        <option selected>Select Suit for Card 3</option>
+        <option value="1">Spade</option>
+        <option value="2">Heart</option>
+        <option value="3">Diamond</option>
+        <option value="3">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no3.2">Preference</label>
+      <select class="form-select" id="no3.2">
+        <option selected>Select Number for Card 3</option>
+        <option value="1">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+        <option value="3">6</option>
+        <option value="3">7</option>
+        <option value="3">8</option>
+        <option value="3">9</option>
+        <option value="3">10</option>
+        <option value="3">J</option>
+        <option value="3">Q</option>
+        <option value="3">K</option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
   <script src="JS-logic/index.js"></script>
 </body>
 

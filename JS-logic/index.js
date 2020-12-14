@@ -1,19 +1,4 @@
-document.getElementById("Start").addEventListener("click",startGame);
-
-function startGame(){
-    alert("Hello")
-    // document.getElementById("Setcard").addEventListener("click",setCard);
-    // var gamesnumber = document.getElementsByName("gameTypes").length();
-    // for (let i = 0;i<gamesnumber;i++){
-        
-    // }
-    var game = new Game("Classic");
-    alert(game.P1)
-}
-
-function setCard(){
-    var suit = document.getElementsByName
-}
+let gameTyp = document.getElementById("gameTyp");
 
 let heirarchies = {
     "Trail": 6,
