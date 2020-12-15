@@ -1,18 +1,22 @@
 let gameTyp = document.getElementById("gameTyp");
-
-document.addEventListener("click", () => { console.log(suit2.value + no2.value) })
+let submit_1 =  document.getElementById("submit_1");
 
 let p1suits = []
 let p2suits = []
 let p1num = []
 let p2num = []
-for (let i = 0;i<3;i++){
-  let k = i+1
-  p1suits[i] = document.getElementById("suit"+k);
-  p1num[i] = document.getElementById("no"+k);
-  p2suits[i] = document.getElementById("suit"+k+".2");
-  p2num[i] = document.getElementById("no"+k+".2");
+for (let i = 0; i < 3; i++) {
+  let k = i + 1
+  p1suits[i] = document.getElementById("suit" + k).value;
+  p1num[i] = document.getElementById("no" + k).value;
+  p2suits[i] = document.getElementById("suit" + k + ".2").value;
+  p2num[i] = document.getElementById("no" + k + ".2").value;
 }
+
+submit_1.addEventListener("click",() => {
+  console.log(p1suits)
+})
+
 
 let heirarchies = {
   "Trail": 6,
@@ -23,10 +27,10 @@ let heirarchies = {
   "HighCard": 1
 }
 let suits = {
-  'spade': 0,
-  'heart': 1,
-  'diamond': 2,
-  'clubs': 3
+  'S': 0,
+  'H': 1,
+  'D': 2,
+  'C': 3
 }
 let numbers = {
   "2": 2,
@@ -38,10 +42,10 @@ let numbers = {
   "8": 8,
   "9": 9,
   "10": 10,
-  'j': 11,
-  'q': 12,
-  'k': 13,
-  'a': 14
+  'J': 11,
+  'Q': 12,
+  'K': 13,
+  'A': 14
 }
 let gameTypes = {
   'Classic': 3,
