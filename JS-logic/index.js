@@ -14,39 +14,41 @@ let no3_2 = document.getElementById("no3.2");
 let playerId_1 = document.getElementById("playerId_1");
 let playerId_2 = document.getElementById("playerId_2");
 
+document.addEventListener("click", () => { console.log(suit2.value + no2.value) })
+
 let heirarchies = {
-    "Trail": 6,
-    "PureSeq": 5,
-    "Seq": 4,
-    "Color": 3,
-    "Pair": 2,
-    "HighCard": 1
+  "Trail": 6,
+  "PureSeq": 5,
+  "Seq": 4,
+  "Color": 3,
+  "Pair": 2,
+  "HighCard": 1
 }
 let suits = {
-    'spade': 0,
-    'heart': 1,
-    'diamond': 2,
-    'clubs': 3
+  'spade': 0,
+  'heart': 1,
+  'diamond': 2,
+  'clubs': 3
 }
 let numbers = {
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    "10": 10,
-    'j': 11,
-    'q': 12,
-    'k': 13,
-    'a': 14
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  'j': 11,
+  'q': 12,
+  'k': 13,
+  'a': 14
 }
 let gameTypes = {
-    'Classic': 3,
-    'AK47': 3,
-    'DiscardOne': 4
+  'Classic': 3,
+  'AK47': 3,
+  'DiscardOne': 4
 }
 
 
@@ -156,7 +158,7 @@ class Player {
     }
     else if (this.pairChecker()) {
       this.hierarchy = heirarchies["Pair"]
-    } 
+    }
     else {
       this.hierarchy = heirarchies["HighCard"]
       let cards = [];
@@ -185,160 +187,160 @@ class Player {
 // console.log(card1)
 
 function winnerAction(winner) {
-    // console.log("Winner function")
-    if (winner != 0)
-        console.log("Player", winner, "won.")
-    else
-        console.log("Tie")
+  // console.log("Winner function")
+  if (winner != 0)
+    console.log("Player", winner, "won.")
+  else
+    console.log("Tie")
 }
 
 class Game {
-    constructor(gameType) {
-        this.gameType = gameType;
-        this.cardsDealt = gameTypes[gameType];
-        this.P1 = new Player();
-        this.P2 = new Player();
-    }
+  constructor(gameType) {
+    this.gameType = gameType;
+    this.cardsDealt = gameTypes[gameType];
+    this.P1 = new Player();
+    this.P2 = new Player();
+  }
 
-    setCard(player_id, suit, num) {
-        // appends card object to player of given player_id
-        // inputs are player_id, suit code(0, 1, 2, 3) and num(2, 3, 4, 'a', 'k', 'q')
-        if (player_id === 1) {
-            if (this.P1.cards.length < this.cardsDealt) {
-                let c1 = new Card(suit, num);
-                // console.log(c1)
-                // console.log("P1 Cards", this.P1.cards);
-                this.P1.cards.push(c1)
-                // console.log("P1 Cards", this.P1.cards);
-            }
-            else
-                if (this.P2.cards.length < this.cardsDealt)
-                    //We can automatically switch to player 2
-                    console.log("Enter cards for player 2")
-            // else
-            //We can disable the enter button and activate the compare button
-            // console.log("Initiate compare")
-        }
-        else if (player_id === 2) {
-            if (this.P2.cards.length < this.cardsDealt) {
-                let c1 = new Card(suit, num);
-                // console.log(c1)
-                // console.log("P2 Cards", this.P2.cards);
-                this.P2.cards.push(c1)
-                // console.log("P2 Cards", this.P2.cards);
-            }
-            else
-                if (this.P1.cards.length < this.cardsDealt)
-                    // We can automatically switch to player 1
-                    console.log("Enter cards for player 1")
-            // else
-            //We can disable the enter button and activate the compare button
-            // console.log("Initiate compare")
-        }
-        return true
+  setCard(player_id, suit, num) {
+    // appends card object to player of given player_id
+    // inputs are player_id, suit code(0, 1, 2, 3) and num(2, 3, 4, 'a', 'k', 'q')
+    if (player_id === 1) {
+      if (this.P1.cards.length < this.cardsDealt) {
+        let c1 = new Card(suit, num);
+        // console.log(c1)
+        // console.log("P1 Cards", this.P1.cards);
+        this.P1.cards.push(c1)
+        // console.log("P1 Cards", this.P1.cards);
+      }
+      else
+        if (this.P2.cards.length < this.cardsDealt)
+          //We can automatically switch to player 2
+          console.log("Enter cards for player 2")
+      // else
+      //We can disable the enter button and activate the compare button
+      // console.log("Initiate compare")
     }
+    else if (player_id === 2) {
+      if (this.P2.cards.length < this.cardsDealt) {
+        let c1 = new Card(suit, num);
+        // console.log(c1)
+        // console.log("P2 Cards", this.P2.cards);
+        this.P2.cards.push(c1)
+        // console.log("P2 Cards", this.P2.cards);
+      }
+      else
+        if (this.P1.cards.length < this.cardsDealt)
+          // We can automatically switch to player 1
+          console.log("Enter cards for player 1")
+      // else
+      //We can disable the enter button and activate the compare button
+      // console.log("Initiate compare")
+    }
+    return true
+  }
 
-    gameType_Classic() {
-        // console.log(this.P1)
-        let p1 = [];
-        p1.push(this.P1.hierarchy);
-        let heirNum1 = this.P1.hierarchyNumber.values();
-        for (const value of heirNum1) {
-            p1.push(value)
-            // console.log(p1)
-        }
-        // console.log(p1.length)
-        let p2 = [];
-        p2.push(this.P2.hierarchy);
-        let heirNum2 = this.P2.hierarchyNumber.values();
-        for (const value of heirNum2) {
-            p2.push(value)
-            // console.log(p2)
-        }
-        // console.log(p1.length)
-        let p1Length = p1.length
-        for (var i=0; i < p1Length; i++) {
-            // console.log("Entered Loop")
-            if (p1[i] > p2[i]) {
-                // console.log("p1 wins")
-                winnerAction(1);
-                return
-            }
-            else if (p1[i] < p2[i]) {
-                // console.log("p2 wins")
-                winnerAction(2);
-                return
-            }
-        }
+  gameType_Classic() {
+    // console.log(this.P1)
+    let p1 = [];
+    p1.push(this.P1.hierarchy);
+    let heirNum1 = this.P1.hierarchyNumber.values();
+    for (const value of heirNum1) {
+      p1.push(value)
+      // console.log(p1)
     }
+    // console.log(p1.length)
+    let p2 = [];
+    p2.push(this.P2.hierarchy);
+    let heirNum2 = this.P2.hierarchyNumber.values();
+    for (const value of heirNum2) {
+      p2.push(value)
+      // console.log(p2)
+    }
+    // console.log(p1.length)
+    let p1Length = p1.length
+    for (var i = 0; i < p1Length; i++) {
+      // console.log("Entered Loop")
+      if (p1[i] > p2[i]) {
+        // console.log("p1 wins")
+        winnerAction(1);
+        return
+      }
+      else if (p1[i] < p2[i]) {
+        // console.log("p2 wins")
+        winnerAction(2);
+        return
+      }
+    }
+  }
 
-    gameTypeMethodDecider() {
-        if (this.gameType === "Classic")
-            this.gameType_Classic();
-    }
+  gameTypeMethodDecider() {
+    if (this.gameType === "Classic")
+      this.gameType_Classic();
+  }
 
-    compare() {
-        if (this.P1.cards.length === this.cardsDealt && this.P2.cards.length === this.cardsDealt) {
-            this.P1.hierarchy_decider();
-            this.P2.hierarchy_decider();
-            this.gameTypeMethodDecider();
-        }
-        else
-            console.log("Enter More cards")
+  compare() {
+    if (this.P1.cards.length === this.cardsDealt && this.P2.cards.length === this.cardsDealt) {
+      this.P1.hierarchy_decider();
+      this.P2.hierarchy_decider();
+      this.gameTypeMethodDecider();
     }
+    else
+      console.log("Enter More cards")
+  }
 }
 
 
 let testing_iterations = 2
 let s = [];
 for (k in suits) {
-    // console.log(k)
-    s.push(k);
+  // console.log(k)
+  s.push(k);
 }
 let n = [];
 for (k in numbers) {
-    // console.log(k)
-    n.push(k);
+  // console.log(k)
+  n.push(k);
 }
 for (let i = 0; i < testing_iterations; i++) {
-    let p1 = [];
-    let p2 = [];
-    let gT = "Classic"
-    let g = new Game(gT)
-    let cards = [];
-    for (var j = 0; j < 3; j++) {
-        let t = true
-        let suit = null
-        let num = null
-        while (t) {
-            suit = s[Math.floor(Math.random() * s.length)]
-            num = n[Math.floor(Math.random() * n.length)]
-            if (!cards.includes([suit, num])) {
-                cards.push([suit, num])
-                break
-            }
-            // console.log(1)
-        }
-        t = g.setCard(1, suit, num)
-        p1.push([suit, num])
+  let p1 = [];
+  let p2 = [];
+  let gT = "Classic"
+  let g = new Game(gT)
+  let cards = [];
+  for (var j = 0; j < 3; j++) {
+    let t = true
+    let suit = null
+    let num = null
+    while (t) {
+      suit = s[Math.floor(Math.random() * s.length)]
+      num = n[Math.floor(Math.random() * n.length)]
+      if (!cards.includes([suit, num])) {
+        cards.push([suit, num])
+        break
+      }
+      // console.log(1)
     }
-    for (var j = 0; j < 3; j++) {
-        let t = true
-        let suit = null
-        let num = null
-        while (t) {
-            suit = s[Math.floor(Math.random() * s.length)]
-            num = n[Math.floor(Math.random() * n.length)]
-            if (!cards.includes([suit, num])) {
-                cards.push([suit, num])
-                break
-            }
-            // console.log(2)
-        }
-        t = g.setCard(2, suit, num)
-        p2.push([suit, num])
+    t = g.setCard(1, suit, num)
+    p1.push([suit, num])
+  }
+  for (var j = 0; j < 3; j++) {
+    let t = true
+    let suit = null
+    let num = null
+    while (t) {
+      suit = s[Math.floor(Math.random() * s.length)]
+      num = n[Math.floor(Math.random() * n.length)]
+      if (!cards.includes([suit, num])) {
+        cards.push([suit, num])
+        break
+      }
+      // console.log(2)
     }
-    console.log("Cards of Player 1:", p1);
-    console.log("Cards of Player 2:", p2);
-    g.compare()
+    t = g.setCard(2, suit, num)
+    p2.push([suit, num])
+  }
+  console.log("Cards of Player 1:", p1);
+  console.log("Cards of Player 2:", p2);
+  g.compare()
 }
