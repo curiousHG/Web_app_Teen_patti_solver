@@ -23,19 +23,11 @@ let p2num = []
 for (let i = 0;i<3;i++){
   let k = i+1
   p1suits[i] = document.getElementById("suit"+k);
-}
-for (let i = 0;i<3;i++){
-  let k = i+1
-  p2suits[i] = document.getElementById("suit"+k+".2");
-}
-for (let i = 0;i<3;i++){
-  let k = i+1
   p1num[i] = document.getElementById("no"+k);
-}
-for (let i = 0;i<3;i++){
-  let k = i+1
+  p2suits[i] = document.getElementById("suit"+k+".2");
   p2num[i] = document.getElementById("no"+k+".2");
 }
+
 let heirarchies = {
   "Trail": 6,
   "PureSeq": 5,
