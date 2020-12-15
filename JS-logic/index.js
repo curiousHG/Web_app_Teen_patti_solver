@@ -1,20 +1,21 @@
 let gameTyp = document.getElementById("gameTyp");
 let submit_1 =  document.getElementById("submit_1");
 
-let p1suits = []
-let p2suits = []
-let p1num = []
-let p2num = []
-for (let i = 0; i < 3; i++) {
-  let k = i + 1
-  p1suits[i] = document.getElementById("suit" + k).value;
-  p1num[i] = document.getElementById("no" + k).value;
-  p2suits[i] = document.getElementById("suit" + k + ".2").value;
-  p2num[i] = document.getElementById("no" + k + ".2").value;
-}
+
 
 submit_1.addEventListener("click",() => {
-  console.log(p1suits)
+  let p1suits = []
+  let p2suits = []
+  let p1num = []
+  let p2num = []
+  for (let i = 0; i < 3; i++) {
+    let k = i + 1
+    p1suits[i] = document.getElementById("suit" + k).value;
+    p1num[i] = document.getElementById("no" + k).value;
+    p2suits[i] = document.getElementById("suit" + k + ".2").value;
+    p2num[i] = document.getElementById("no" + k + ".2").value;
+  }
+  alert(p1suits)
 })
 
 
