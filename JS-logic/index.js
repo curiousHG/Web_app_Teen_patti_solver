@@ -1,5 +1,6 @@
 let gameTyp = document.getElementById("gameTyp");
 let submit_1 = document.getElementById("submit_1");
+let compare = document.getElementById("Compare");
 
 let p1suits = []
 let p1num = []
@@ -338,16 +339,18 @@ class Game {
 //   console.log("Cards of Player 2:", p2);
 //   g.compare()
 // }
-
+let p2suits = []
+let p2num = []
 let submit_2 = document.getElementById("submit_2")
 submit_2.addEventListener("click", () => {
-  let p2suits = []
-  let p2num = []
   for (let i = 0; i < 3; i++) {
     let k = i + 1
     p2suits[i] = document.getElementById("suit" + k + ".2").value;
     p2num[i] = document.getElementById("no" + k + ".2").value;
   }
+})
+compare.addEventListener("click", () => {
+  alert(p2suits)
   let p1 = [];
   let p2 = [];
   let gT = gameTyp.value;
@@ -377,10 +380,8 @@ submit_2.addEventListener("click", () => {
         alert("Similar cards entered!")
       }
     }
-    p1.push([suit, num])
   }
-  console.log("Cards of Player 1:", p1);
-  console.log("Cards of Player 2:", p2);
+  console.log(cards)
   g.compare()
 
 
