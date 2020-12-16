@@ -184,10 +184,12 @@ class Player {
 
 function winnerAction(winner) {
   // console.log("Winner function")
-  if (winner != 0)
-    alert("Player", winner, "won.")
-  else
+  if (winner != 0){
+    let t = "Player"+ winner+ "won."
+    alert(t)
+  }else{
     alert("Tie")
+  }
 }
 
 class Game {
@@ -350,35 +352,27 @@ submit_2.addEventListener("click", () => {
   }
 })
 compare.addEventListener("click", () => {
-  alert(p2suits)
-  let p1 = [];
-  let p2 = [];
   let gT = gameTyp.value;
   let g = new Game(gT)
   let cards = [];
   for (var j = 0; j < 3; j++) {
-    let t = true
     let suit = null
     let num = null
-    while (t) {
-      suit = p1suits[j]
-      num = p1num[j]
-      if (!cards.includes([suit, num])) {
-        g.setCard(1, p1suits[j], p1num[j])
-        cards.push([suit, num])
-        break
-      }else{
-        alert("Similar cards entered!")
-      }
-      suit = p2suits[j]
-      num = p2num[j]
-      if (!cards.includes([suit, num])) {
-        g.setCard(2, p2suits[j], p2num[j])
-        cards.push([suit, num])
-        break
-      }else{
-        alert("Similar cards entered!")
-      }
+    suit = p1suits[j]
+    num = p1num[j]
+    if (!cards.includes([suit, num])) {
+      g.setCard(1, p1suits[j], p1num[j])
+      cards.push([suit, num])
+    } else {
+      alert("Similar cards entered!")
+    }
+    suit = p2suits[j]
+    num = p2num[j]
+    if (!cards.includes([suit, num])) {
+      g.setCard(2, p2suits[j], p2num[j])
+      cards.push([suit, num])
+    } else {
+      alert("Similar cards entered!")
     }
   }
   console.log(cards)
