@@ -17,7 +17,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="/">Teen Patti Solver</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
+            <a class="nav-link" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Tell Us Your Variation</a>
@@ -41,16 +41,19 @@
     </div>
   </nav>
 
-  <div class="container mt-2">
+  <div class="container mt-2 chooser">
 
-    <div class="col-sm-6 container align-items-center align-self-center">
-      <label class="visually-hidden" for="gameTyp">Preference</label>
-      <select class="form-select" id="gameTyp">
-        <option selected>Select Game Type</option>
-        <option value="Classic">Classic</option>
-        <option value="AK47">AK47</option>
-        <option value="Muflis">Muflis</option>
-      </select>
+    <div class="row align-items-center align-content-center">
+      <div class="col-sm-6 col-md-6">
+        <label class="visually-hidden" for="gameTyp">Preference</label>
+        <select class="form-select" id="gameTyp">
+          <option selected>Select Game Type</option>
+          <option value="Classic">Classic</option>
+          <option value="AK47">AK47</option>
+          <option value="Muflis">Muflis</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary col-sm-6 col-md-6" id="Compare">Compare</button>
     </div>
     <hr>
     <form class="row gx-3 gy-2 align-items-center">
@@ -65,7 +68,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="suit1">Preference</label>
         <select class="form-select" id="suit1">
-          <option >Select Suit for Card 1</option>
+          <option>Select Suit for Card 1</option>
           <option value="S">Spade</option>
           <option value="H">Heart</option>
           <option value="D">Diamond</option>
@@ -75,7 +78,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="no1">Preference</label>
         <select class="form-select" id="no1">
-          <option >Select Number for Card 1</option>
+          <option>Select Number for Card 1</option>
           <option value="A">A</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -94,7 +97,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="suit2">Preference</label>
         <select class="form-select" id="suit2">
-          <option >Select Suit for Card 2</option>
+          <option>Select Suit for Card 2</option>
           <option value="S">Spade</option>
           <option value="H">Heart</option>
           <option value="D">Diamond</option>
@@ -104,7 +107,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="no2">Preference</label>
         <select class="form-select" id="no2">
-          <option >Select Number for Card 2</option>
+          <option>Select Number for Card 2</option>
           <option value="A">A</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -123,7 +126,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="suit3">Preference</label>
         <select class="form-select" id="suit3">
-          <option >Select Suit for Card 3</option>
+          <option>Select Suit for Card 3</option>
           <option value="S">Spade</option>
           <option value="H">Heart</option>
           <option value="D">Diamond</option>
@@ -133,7 +136,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="no3">Preference</label>
         <select class="form-select" id="no3">
-          <option >Select Number for Card 3</option>
+          <option>Select Number for Card 3</option>
           <option value="A">A</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -169,7 +172,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="suit1.2">Preference</label>
         <select class="form-select" id="suit1.2">
-          <option >Select Suit for Card 1</option>
+          <option>Select Suit for Card 1</option>
           <option value="S">Spade</option>
           <option value="H">Heart</option>
           <option value="D">Diamond</option>
@@ -179,7 +182,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="no1.2">Preference</label>
         <select class="form-select" id="no1.2">
-          <option >Select Number for Card 1</option>
+          <option>Select Number for Card 1</option>
           <option value="A">A</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -198,7 +201,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="suit2.2">Preference</label>
         <select class="form-select" id="suit2.2">
-          <option >Select Suit for Card 2</option>
+          <option>Select Suit for Card 2</option>
           <option value="S">Spade</option>
           <option value="H">Heart</option>
           <option value="D">Diamond</option>
@@ -208,7 +211,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="no2.2">Preference</label>
         <select class="form-select" id="no2.2">
-          <option >Select Number for Card 2</option>
+          <option>Select Number for Card 2</option>
           <option value="A">A</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -227,7 +230,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="suit3.2">Preference</label>
         <select class="form-select" id="suit3.2">
-          <option >Select Suit for Card 3</option>
+          <option>Select Suit for Card 3</option>
           <option value="S">Spade</option>
           <option value="H">Heart</option>
           <option value="D">Diamond</option>
@@ -237,7 +240,7 @@
       <div class="col-sm-6">
         <label class="visually-hidden" for="no3.2">Preference</label>
         <select class="form-select" id="no3.2">
-          <option >Select Number for Card 3</option>
+          <option>Select Number for Card 3</option>
           <option value="A">A</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -258,11 +261,25 @@
         <button type="button" class="btn btn-primary" id="submit_2">Submit</button>
       </div>
     </form>
-    <div class="col-sm-12 col-md-12">
-      <button type="button" class="btn btn-primary" id="Compare">Compare</button>
-    </div>
-  </div>
 
+
+  </div>
+  <div class="container">
+    <div class="container row imageShower mt-2">
+      <div class="col-sm-6 col-md-6">
+        <img src="" alt="" id="c1" class="col-sm-1 col-md-2">
+        <img src="" alt="" id="c2" class="col-sm-1 col-md-2">
+        <img src="" alt="" id="c3" class="col-sm-1 col-md-2">
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <img src="" alt="" id="c4" class="col-sm-1 col-md-2">
+        <img src="" alt="" id="c5" class="col-sm-1 col-md-2">
+        <img src="" alt="" id="c6" class="col-sm-1 col-md-2">
+      </div>
+    </div>
+    <div class="result"></div>
+    <a href="/"><button class="btn btn-outline-dark none reset">RESET</button></a>
+  </div>
   <script src="JS-logic/index.js"></script>
 </body>
 

@@ -1,6 +1,15 @@
 let gameTyp = document.getElementById("gameTyp");
 let submit_1 = document.getElementById("submit_1");
 let compare = document.getElementById("Compare");
+let c1 = document.getElementById("c1")
+let c2 = document.getElementById("c2")
+let c3 = document.getElementById("c3")
+let c4 = document.getElementById("c4")
+let c5 = document.getElementById("c5")
+let c6 = document.getElementById("c6")
+let result = document.querySelector(".result")
+let chooser = document.querySelector(".chooser")
+let reset = document.querySelector(".reset")
 
 let p1suits = []
 let p1num = []
@@ -11,10 +20,6 @@ submit_1.addEventListener("click", () => {
     p1suits[i] = document.getElementById("suit" + k).value;
     p1num[i] = document.getElementById("no" + k).value;
   }
-<<<<<<< HEAD
-  // console.log(p1suits,p1num)
-=======
->>>>>>> 07ce3ddaa3263b95a75953037de14ebd9c10d526
 })
 
 
@@ -184,11 +189,11 @@ class Player {
 
 function winnerAction(winner) {
   // console.log("Winner function")
-  if (winner != 0){
-    let t = "Player"+ winner+ "won."
-    alert(t)
-  }else{
-    alert("Tie")
+  if (winner != 0) {
+    let t = `Player ${winner} wins`
+    result.innerHTML = `<h3>${t}</h3>`
+  } else {
+    result.innerHTML = `<h3>Tie</h3>`
   }
 }
 
@@ -352,6 +357,15 @@ submit_2.addEventListener("click", () => {
   }
 })
 compare.addEventListener("click", () => {
+  chooser.classList.add("none");
+  reset.classList.remove("none")
+  let iter = 0;
+  c1.src = `/Cards/${p1suits[iter]}/${p1num[iter] + p1suits[iter]}.png`
+  c2.src = `/Cards/${p1suits[iter + 1]}/${p1num[iter + 1] + p1suits[iter + 1]}.png`
+  c3.src = `/Cards/${p1suits[iter + 2]}/${p1num[iter + 2] + p1suits[iter + 2]}.png`
+  c4.src = `/Cards/${p2suits[iter]}/${p2num[iter] + p2suits[iter]}.png`
+  c5.src = `/Cards/${p2suits[iter + 1]}/${p2num[iter + 1] + p2suits[iter + 1]}.png`
+  c6.src = `/Cards/${p2suits[iter + 2]}/${p2num[iter + 2] + p2suits[iter + 2]}.png`
   let gT = gameTyp.value;
   let g = new Game(gT)
   let cards = [];
@@ -377,6 +391,5 @@ compare.addEventListener("click", () => {
   }
   console.log(cards)
   g.compare()
-
 
 })
