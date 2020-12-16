@@ -24,3 +24,12 @@
     font-size: 1.9rem;
     text-align: center;
 }
+
+.imageShower {
+    display: flex;
+    justify-content: space-around;
+}
+
+.none {
+    display: none;
+}
