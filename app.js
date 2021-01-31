@@ -6,40 +6,40 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 "use strict";
-// const heirarchies = {
-//     "Trail": 6,
-//     "PureSeq": 5,
-//     "Seq": 4,
-//     "Color": 3,
-//     "Pair": 2,
-//     "HighCard": 1
-// }
-// const suits = {
-//     'S': 0,
-//     'H': 1,
-//     'D': 2,
-//     'C': 3
-// }
-// const numbers = {
-//     "2": 2,
-//     "3": 3,
-//     "4": 4,
-//     "5": 5,
-//     "6": 6,
-//     "7": 7,
-//     "8": 8,
-//     "9": 9,
-//     "10": 10,
-//     'J': 11,
-//     'Q': 12,
-//     'K': 13,
-//     'A': 14
-// }
-// const gameTypes = {
-//     'Classic': 3,
-//     'AK47': 3,
-//     'DiscardOne': 4
-// }
+const heirarchies = {
+    "Trail": 6,
+    "PureSeq": 5,
+    "Seq": 4,
+    "Color": 3,
+    "Pair": 2,
+    "HighCard": 1
+}
+const suits = {
+    'S': 0,
+    'H': 1,
+    'D': 2,
+    'C': 3
+}
+const numbers = {
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    'J': 11,
+    'Q': 12,
+    'K': 13,
+    'A': 14
+}
+const gameTypes = {
+    'Classic': 3,
+    'AK47': 3,
+    'DiscardOne': 4
+}
 
 app.get("/", function (req, res) {
     res.render("home",{gameTypes:gameTypes,numbers:numbers,suits:suits})
@@ -69,4 +69,4 @@ app.listen(3000, function () {
     console.log("Server started on port 3000");
 });
 const g = new game();
-g.print();
+g.setCard();
