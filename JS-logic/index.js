@@ -357,15 +357,7 @@ submit_2.addEventListener("click", () => {
   }
 })
 compare.addEventListener("click", () => {
-  chooser.classList.add("none");
-  reset.classList.remove("none")
-  let iter = 0;
-  c1.src = `/Cards/${p1suits[iter]}/${p1num[iter] + p1suits[iter]}.png`
-  c2.src = `/Cards/${p1suits[iter + 1]}/${p1num[iter + 1] + p1suits[iter + 1]}.png`
-  c3.src = `/Cards/${p1suits[iter + 2]}/${p1num[iter + 2] + p1suits[iter + 2]}.png`
-  c4.src = `/Cards/${p2suits[iter]}/${p2num[iter] + p2suits[iter]}.png`
-  c5.src = `/Cards/${p2suits[iter + 1]}/${p2num[iter + 1] + p2suits[iter + 1]}.png`
-  c6.src = `/Cards/${p2suits[iter + 2]}/${p2num[iter + 2] + p2suits[iter + 2]}.png`
+ 
   let gT = gameTyp.value;
   let g = new Game(gT)
   let cards = [];
@@ -391,5 +383,14 @@ compare.addEventListener("click", () => {
   }
   console.log(cards)
   g.compare()
+  chooser.classList.add("none");
+  reset.classList.remove("none")
+  let iter = 0;
+  c1.src = `/Cards/${p1suits[iter]}/${p1num[iter] + p1suits[iter]}.png`
+  c2.src = `/Cards/${p1suits[iter + 1]}/${p1num[iter + 1] + p1suits[iter + 1]}.png`
+  c3.src = `/Cards/${p1suits[iter + 2]}/${p1num[iter + 2] + p1suits[iter + 2]}.png`
+  c4.src = `/Cards/${p2suits[iter]}/${p2num[iter] + p2suits[iter]}.png`
+  c5.src = `/Cards/${p2suits[iter + 1]}/${p2num[iter + 1] + p2suits[iter + 1]}.png`
+  c6.src = `/Cards/${p2suits[iter + 2]}/${p2num[iter + 2] + p2suits[iter + 2]}.png`
 
 })
