@@ -1,0 +1,24 @@
+{
+  "name": "web_app_teen_patti_solver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harsh6372/Web_app_Teen_patti_solver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harsh6372/Web_app_Teen_patti_solver/issues"
+  },
+  "homepage": "https://github.com/harsh6372/Web_app_Teen_patti_solver#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
