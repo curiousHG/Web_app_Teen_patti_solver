@@ -1,286 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("header") -%> 
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/public/css/styles.css">
-  <title>Teen Patti Solver</title>
-</head>
+<div class="container mt-2 chooser">
+  <div class="row align-items-center align-content-center">
+    <div class="col-sm-6 col-md-6">
+      <label class="visually-hidden" for="gameTyp">Preference</label>
+      <select class="form-select" id="gameTyp">
+        <option selected>Select Game Type</option>
+        <% Object.keys(gameTypes).forEach(function(key){%>
+          <% console.log(key,gameTypes[key])%>
+          <option value=key><%= key %></option>
+        <%})%>
+      </select>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary col-sm-6 col-md-6"
+      id="Compare"
+    >
+      Compare
+    </button>
+  </div>
+  <!-- <hr />
+  <form class="row gx-3 gy-2 align-items-center">
+    <div class="col-sm-12 col-md-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="playerId_1" />
+        <label class="form-check-label" for="playerId_1"> Player 1 </label>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit1">Preference</label>
+      <select class="form-select" id="suit1">
+        <option>Select Suit for Card 1</option>
+        <% Object.keys(suits).forEach(function(key){%>
+          <% console.log(key,suits[key])%>
+          <option value=key><%= key %></option>
+        <%})%>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no1">Preference</label>
+      <select class="form-select" id="no1">
+        <option>Select Number for Card 1</option>
+        <% Object.keys(numbers).forEach(function(key){%>
+          <% console.log(key,s[key])%>
+          <option value=key><%= key %></option>
+        <%})%>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit2">Preference</label>
+      <select class="form-select" id="suit2">
+        <option>Select Suit for Card 2</option>
+        <option value="S">Spade</option>
+        <option value="H">Heart</option>
+        <option value="D">Diamond</option>
+        <option value="C">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no2">Preference</label>
+      <select class="form-select" id="no2">
+        <option>Select Number for Card 2</option>
+        <option value="A">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="J">J</option>
+        <option value="Q">Q</option>
+        <option value="K">K</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit3">Preference</label>
+      <select class="form-select" id="suit3">
+        <option>Select Suit for Card 3</option>
+        <option value="S">Spade</option>
+        <option value="H">Heart</option>
+        <option value="D">Diamond</option>
+        <option value="C">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no3">Preference</label>
+      <select class="form-select" id="no3">
+        <option>Select Number for Card 3</option>
+        <option value="A">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="J">J</option>
+        <option value="Q">Q</option>
+        <option value="K">K</option>
+      </select>
+    </div>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Teen Patti Solver</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <div class="col-auto">
+      <button type="button" id="submit_1" class="btn btn-primary">
+        Submit
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tell Us Your Variation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Rules</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Win Probability</a>
-          </li>
-        </ul>
+    </div>
+  </form>
+
+  <hr />
+
+  <form class="row gx-3 gy-2 align-items-center">
+    <div class="col-sm-12 col-md-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="playerId_2" />
+        <label class="form-check-label" for="playerId_2"> Player 2 </label>
       </div>
     </div>
-  </nav>
-
-  <div class="container mt-2 chooser">
-
-    <div class="row align-items-center align-content-center">
-      <div class="col-sm-6 col-md-6">
-        <label class="visually-hidden" for="gameTyp">Preference</label>
-        <select class="form-select" id="gameTyp">
-          <option selected>Select Game Type</option>
-          <option value="Classic">Classic</option>
-          <option value="AK47">AK47</option>
-          <option value="Muflis">Muflis</option>
-        </select>
-      </div>
-      <button type="button" class="btn btn-primary col-sm-6 col-md-6" id="Compare">Compare</button>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit1.2">Preference</label>
+      <select class="form-select" id="suit1.2">
+        <option>Select Suit for Card 1</option>
+        <option value="S">Spade</option>
+        <option value="H">Heart</option>
+        <option value="D">Diamond</option>
+        <option value="C">Clubs</option>
+      </select>
     </div>
-    <hr>
-    <form class="row gx-3 gy-2 align-items-center">
-      <div class="col-sm-12 col-md-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="playerId_1">
-          <label class="form-check-label" for="playerId_1">
-            Player 1
-          </label>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="suit1">Preference</label>
-        <select class="form-select" id="suit1">
-          <option>Select Suit for Card 1</option>
-          <option value="S">Spade</option>
-          <option value="H">Heart</option>
-          <option value="D">Diamond</option>
-          <option value="C">Clubs</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="no1">Preference</label>
-        <select class="form-select" id="no1">
-          <option>Select Number for Card 1</option>
-          <option value="A">A</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="J">J</option>
-          <option value="Q">Q</option>
-          <option value="K">K</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="suit2">Preference</label>
-        <select class="form-select" id="suit2">
-          <option>Select Suit for Card 2</option>
-          <option value="S">Spade</option>
-          <option value="H">Heart</option>
-          <option value="D">Diamond</option>
-          <option value="C">Clubs</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="no2">Preference</label>
-        <select class="form-select" id="no2">
-          <option>Select Number for Card 2</option>
-          <option value="A">A</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="J">J</option>
-          <option value="Q">Q</option>
-          <option value="K">K</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="suit3">Preference</label>
-        <select class="form-select" id="suit3">
-          <option>Select Suit for Card 3</option>
-          <option value="S">Spade</option>
-          <option value="H">Heart</option>
-          <option value="D">Diamond</option>
-          <option value="C">Clubs</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="no3">Preference</label>
-        <select class="form-select" id="no3">
-          <option>Select Number for Card 3</option>
-          <option value="A">A</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="J">J</option>
-          <option value="Q">Q</option>
-          <option value="K">K</option>
-        </select>
-      </div>
-
-      <div class="col-auto">
-        <button type="button" id="submit_1" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-
-    <hr>
-
-    <form class="row gx-3 gy-2 align-items-center">
-      <div class="col-sm-12 col-md-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="playerId_2">
-          <label class="form-check-label" for="playerId_2">
-            Player 2
-          </label>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="suit1.2">Preference</label>
-        <select class="form-select" id="suit1.2">
-          <option>Select Suit for Card 1</option>
-          <option value="S">Spade</option>
-          <option value="H">Heart</option>
-          <option value="D">Diamond</option>
-          <option value="C">Clubs</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="no1.2">Preference</label>
-        <select class="form-select" id="no1.2">
-          <option>Select Number for Card 1</option>
-          <option value="A">A</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="J">J</option>
-          <option value="Q">Q</option>
-          <option value="K">K</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="suit2.2">Preference</label>
-        <select class="form-select" id="suit2.2">
-          <option>Select Suit for Card 2</option>
-          <option value="S">Spade</option>
-          <option value="H">Heart</option>
-          <option value="D">Diamond</option>
-          <option value="C">Clubs</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="no2.2">Preference</label>
-        <select class="form-select" id="no2.2">
-          <option>Select Number for Card 2</option>
-          <option value="A">A</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="J">J</option>
-          <option value="Q">Q</option>
-          <option value="K">K</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="suit3.2">Preference</label>
-        <select class="form-select" id="suit3.2">
-          <option>Select Suit for Card 3</option>
-          <option value="S">Spade</option>
-          <option value="H">Heart</option>
-          <option value="D">Diamond</option>
-          <option value="C">Clubs</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-        <label class="visually-hidden" for="no3.2">Preference</label>
-        <select class="form-select" id="no3.2">
-          <option>Select Number for Card 3</option>
-          <option value="A">A</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="J">J</option>
-          <option value="Q">Q</option>
-          <option value="K">K</option>
-        </select>
-      </div>
-
-      <div class="col-auto">
-        <button type="button" class="btn btn-primary" id="submit_2">Submit</button>
-      </div>
-    </form>
-
-
-  </div>
-  <div class="container">
-    <div class="container row imageShower mt-2">
-      <div class="col-sm-6 col-md-6">
-        <img src="" alt="" id="c1" class="col-sm-1 col-md-2">
-        <img src="" alt="" id="c2" class="col-sm-1 col-md-2">
-        <img src="" alt="" id="c3" class="col-sm-1 col-md-2">
-      </div>
-      <div class="col-sm-6 col-md-6">
-        <img src="" alt="" id="c4" class="col-sm-1 col-md-2">
-        <img src="" alt="" id="c5" class="col-sm-1 col-md-2">
-        <img src="" alt="" id="c6" class="col-sm-1 col-md-2">
-      </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no1.2">Preference</label>
+      <select class="form-select" id="no1.2">
+        <option>Select Number for Card 1</option>
+        <option value="A">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="J">J</option>
+        <option value="Q">Q</option>
+        <option value="K">K</option>
+      </select>
     </div>
-    <div class="result"></div>
-    <a href="/"><button class="btn btn-outline-dark none reset">RESET</button></a>
-  </div>
-  <script src="JS-logic/index.js"></script>
-</body>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit2.2">Preference</label>
+      <select class="form-select" id="suit2.2">
+        <option>Select Suit for Card 2</option>
+        <option value="S">Spade</option>
+        <option value="H">Heart</option>
+        <option value="D">Diamond</option>
+        <option value="C">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no2.2">Preference</label>
+      <select class="form-select" id="no2.2">
+        <option>Select Number for Card 2</option>
+        <option value="A">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="J">J</option>
+        <option value="Q">Q</option>
+        <option value="K">K</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit3.2">Preference</label>
+      <select class="form-select" id="suit3.2">
+        <option>Select Suit for Card 3</option>
+        <option value="S">Spade</option>
+        <option value="H">Heart</option>
+        <option value="D">Diamond</option>
+        <option value="C">Clubs</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no3.2">Preference</label>
+      <select class="form-select" id="no3.2">
+        <option>Select Number for Card 3</option>
+        <option value="A">A</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="J">J</option>
+        <option value="Q">Q</option>
+        <option value="K">K</option>
+      </select>
+    </div>
 
-</html>
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary" id="submit_2">
+        Submit
+      </button>
+    </div>
+  </form> -->
+</div>
+<%- include("finalImage") -%> <%- include("footer") -%>

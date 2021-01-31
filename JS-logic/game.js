@@ -1,28 +1,4 @@
-let gameTyp = document.getElementById("gameTyp");
-let submit_1 = document.getElementById("submit_1");
-let compare = document.getElementById("Compare");
-let c1 = document.getElementById("c1")
-let c2 = document.getElementById("c2")
-let c3 = document.getElementById("c3")
-let c4 = document.getElementById("c4")
-let c5 = document.getElementById("c5")
-let c6 = document.getElementById("c6")
-let result = document.querySelector(".result")
-let chooser = document.querySelector(".chooser")
-let reset = document.querySelector(".reset")
-
-let p1suits = []
-let p1num = []
-
-submit_1.addEventListener("click", () => {
-  for (let i = 0; i < 3; i++) {
-    let k = i + 1
-    p1suits[i] = document.getElementById("suit" + k).value;
-    p1num[i] = document.getElementById("no" + k).value;
-  }
-})
-
-
+"use strict";
 let heirarchies = {
   "Trail": 6,
   "PureSeq": 5,
@@ -57,7 +33,6 @@ let gameTypes = {
   'AK47': 3,
   'DiscardOne': 4
 }
-
 class Card {
   constructor(suit, number) {
     this.suit = suits[suit];
@@ -174,37 +149,13 @@ class Player {
     }
   }
 }
-
-
-// let l = [c4, c2, c3]
-// let p = new Player()
-// p.cards = l
-// p.hierarchy_decider();
-// console.log(p.cards)
-// console.log(p.hierarchy,p.hierarchyNumber)
-
-
-// let card1 = new Card("spade", 2);
-// console.log(card1)
-
-function winnerAction(winner) {
-  // console.log("Winner function")
-  if (winner != 0) {
-    let t = `Player ${winner} wins`
-    result.innerHTML = `<h3>${t}</h3>`
-  } else {
-    result.innerHTML = `<h3>Tie</h3>`
-  }
-}
-
-class Game {
+module.exports = class Game {
   constructor(gameType) {
     this.gameType = gameType;
     this.cardsDealt = gameTypes[gameType];
     this.P1 = new Player();
     this.P2 = new Player();
   }
-
   setCard(player_id, suit, num) {
     // appends card object to player of given player_id
     // inputs are player_id, suit code(0, 1, 2, 3) and num(2, 3, 4, 'a', 'k', 'q')
@@ -291,106 +242,4 @@ class Game {
     else
       console.log("Enter More cards")
   }
-}
-
-// let testing_iterations = 2
-// let s = [];
-// for (k in suits) {
-//   // console.log(k)
-//   s.push(k);
-// }
-// let n = [];
-// for (k in numbers) {
-//   // console.log(k)
-//   n.push(k);
-// }
-// for (let i = 0; i < testing_iterations; i++) {
-//   let p1 = [];
-//   let p2 = [];
-//   let gT = "Classic"
-//   let g = new Game(gT)
-//   let cards = [];
-//   for (var j = 0; j < 3; j++) {
-//     let t = true
-//     let suit = null
-//     let num = null
-//     while (t) {
-//       suit = s[Math.floor(Math.random() * s.length)]
-//       num = n[Math.floor(Math.random() * n.length)]
-//       if (!cards.includes([suit, num])) {
-//         cards.push([suit, num])
-//         break
-//       }
-//       // console.log(1)
-//     }
-//     t = g.setCard(1, suit, num)
-//     p1.push([suit, num])
-//   }
-//   for (var j = 0; j < 3; j++) {
-//     let t = true
-//     let suit = null
-//     let num = null
-//     while (t) {
-//       suit = s[Math.floor(Math.random() * s.length)]
-//       num = n[Math.floor(Math.random() * n.length)]
-//       if (!cards.includes([suit, num])) {
-//         cards.push([suit, num])
-//         break
-//       }
-//       // console.log(2)
-//     }
-//     t = g.setCard(2, suit, num)
-//     p2.push([suit, num])
-//   }
-//   console.log("Cards of Player 1:", p1);
-//   console.log("Cards of Player 2:", p2);
-//   g.compare()
-// }
-let p2suits = []
-let p2num = []
-let submit_2 = document.getElementById("submit_2")
-submit_2.addEventListener("click", () => {
-  for (let i = 0; i < 3; i++) {
-    let k = i + 1
-    p2suits[i] = document.getElementById("suit" + k + ".2").value;
-    p2num[i] = document.getElementById("no" + k + ".2").value;
-  }
-})
-compare.addEventListener("click", () => {
- 
-  let gT = gameTyp.value;
-  let g = new Game(gT)
-  let cards = [];
-  for (var j = 0; j < 3; j++) {
-    let suit = null
-    let num = null
-    suit = p1suits[j]
-    num = p1num[j]
-    if (!cards.includes([suit, num])) {
-      g.setCard(1, p1suits[j], p1num[j])
-      cards.push([suit, num])
-    } else {
-      alert("Similar cards entered!")
-    }
-    suit = p2suits[j]
-    num = p2num[j]
-    if (!cards.includes([suit, num])) {
-      g.setCard(2, p2suits[j], p2num[j])
-      cards.push([suit, num])
-    } else {
-      alert("Similar cards entered!")
-    }
-  }
-  console.log(cards)
-  g.compare()
-  chooser.classList.add("none");
-  reset.classList.remove("none")
-  let iter = 0;
-  c1.src = `/public/Cards/${p1suits[iter]}/${p1num[iter] + p1suits[iter]}.png`
-  c2.src = `/public/Cards/${p1suits[iter + 1]}/${p1num[iter + 1] + p1suits[iter + 1]}.png`
-  c3.src = `/public/Cards/${p1suits[iter + 2]}/${p1num[iter + 2] + p1suits[iter + 2]}.png`
-  c4.src = `/public/Cards/${p2suits[iter]}/${p2num[iter] + p2suits[iter]}.png`
-  c5.src = `/public/Cards/${p2suits[iter + 1]}/${p2num[iter + 1] + p2suits[iter + 1]}.png`
-  c6.src = `/public/Cards/${p2suits[iter + 2]}/${p2num[iter + 2] + p2suits[iter + 2]}.png`
-
-/public})
+};
