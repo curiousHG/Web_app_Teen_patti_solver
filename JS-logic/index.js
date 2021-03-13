@@ -7,6 +7,12 @@ let c3 = document.getElementById("c3")
 let c4 = document.getElementById("c4")
 let c5 = document.getElementById("c5")
 let c6 = document.getElementById("c6")
+var c = []
+for(let i = 0;i<6;i++){
+  var t = i+1
+  c[i] = document.getElementById("c"+t);
+  console.log("c"+t);
+}
 let result = document.querySelector(".result")
 let chooser = document.querySelector(".chooser")
 let reset = document.querySelector(".reset")
@@ -22,40 +28,17 @@ submit_1.addEventListener("click", () => {
   }
 })
 
-
 let heirarchies = {
-  "Trail": 6,
-  "PureSeq": 5,
-  "Seq": 4,
-  "Color": 3,
-  "Pair": 2,
-  "HighCard": 1
+  "Trail": 6, "PureSeq": 5, "Seq": 4, "Color": 3, "Pair": 2, "HighCard": 1
 }
 let suits = {
-  'S': 0,
-  'H': 1,
-  'D': 2,
-  'C': 3
+  'S': 0, 'H': 1, 'D': 2, 'C': 3
 }
 let numbers = {
-  "2": 2,
-  "3": 3,
-  "4": 4,
-  "5": 5,
-  "6": 6,
-  "7": 7,
-  "8": 8,
-  "9": 9,
-  "10": 10,
-  'J': 11,
-  'Q': 12,
-  'K': 13,
-  'A': 14
+  "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, 'J': 11, 'Q': 12, 'K': 13, 'A': 14
 }
 let gameTypes = {
-  'Classic': 3,
-  'AK47': 3,
-  'DiscardOne': 4
+  'Classic': 3, 'AK47': 3, 'DiscardOne': 4
 }
 
 class Card {
