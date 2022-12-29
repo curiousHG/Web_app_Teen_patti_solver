@@ -44,6 +44,9 @@ const gameTypes = {
 app.get("/", function (req, res) {
     res.render("home",{gameTypes:gameTypes,numbers:numbers,suits:suits})
 })
+app.post("/",function (req,res) {
+    console.log(req.body);
+  })
 app.get("/rules", function (req, res) {
     res.render("rules")
 })

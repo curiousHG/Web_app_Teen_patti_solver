@@ -1,54 +1,58 @@
 <div class="container mt-2 chooser">
-<div class="row align-items-center align-content-center">
+  <div class="row align-items-center align-content-center">
     <div class="col-sm-6 col-md-6">
       <label class="visually-hidden" for="gameTyp">Preference</label>
       <select class="form-select" id="gameTyp">
         <option selected>Select Game Type</option>
         <% Object.keys(gameTypes).forEach(function(key){%>
-          <option value=key><%= key %></option>
+        <option value="key"><%= key %></option>
         <%})%>
       </select>
     </div>
     <button
-      type="button"
+      type="submit"
       class="btn btn-primary col-sm-6 col-md-6"
       id="Compare"
     >
       Compare
     </button>
   </div>
-<%for(let i = 1;i<3;i++){%>
-<hr>
-<form class="row gx-3 gy-2 align-items-center">
-  <div class="col-sm-12 col-md-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="playerId_1" />
-      <label class="form-check-label" for="playerId_1"> Player <%= i%> </label>
+  <%for(let i = 1;i<3;i++){%>
+  <hr />
+  <form class="row gx-3 gy-2 align-items-center">
+    <div class="col-sm-12 col-md-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="playerId_1" />
+        <label class="form-check-label" for="playerId_1">
+          Player <%= i%>
+        </label>
+      </div>
     </div>
-  </div>
-  <%for(let j = 1;j<4;j++){%>
-  <div class="col-sm-6">
-    <label class="visually-hidden" for="suit1">Preference</label>
-    <select class="form-select" id="suit1">
-      <option>Select Suit for Card <%= j%></option>
-      <% Object.keys(suits).forEach(function(key){%>
-      <option value="key"><%= key %></option>
-      <%})%>
-    </select>
-  </div>
-  <div class="col-sm-6">
-    <label class="visually-hidden" for="no1">Preference</label>
-    <select class="form-select" id="no1">
-      <option>Select Number for Card <%= j%></option>
-      <% Object.keys(numbers).forEach(function(key){%>
-      <option value="key"><%= key %></option>
-      <%})%>
-    </select>
-  </div>
+    <%for(let j = 1;j<4;j++){%>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="suit1">Preference</label>
+      <select class="form-select" id="suit1">
+        <option>Select Suit for Card <%= j%></option>
+        <% Object.keys(suits).forEach(function(key){%>
+        <option value="key"><%= key %></option>
+        <%})%>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden" for="no1">Preference</label>
+      <select class="form-select" id="no1">
+        <option>Select Number for Card <%= j%></option>
+        <% Object.keys(numbers).forEach(function(key){%>
+        <option value="key"><%= key %></option>
+        <%})%>
+      </select>
+    </div>
+    <%}%>
+    <div class="col-auto">
+      <button type="button" id="submit_1" class="btn btn-primary">
+        Submit
+      </button>
+    </div>
+  </form>
   <%}%>
-  <div class="col-auto">
-    <button type="button" id="submit_1" class="btn btn-primary">Submit</button>
-  </div>
-</form>
-<%}%>
 </div>
